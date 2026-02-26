@@ -1,2 +1,2 @@
 Ссылка на приложение:
-https://dripskii.github.io/book-manager/
+https://dripskii.github.io/my-app/
