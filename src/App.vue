@@ -4,42 +4,54 @@
 
     <!-- Форма для добавления книги -->
     <div class="row">
-      <div class="col-md-6 offset-md-3">
-        <form @submit.prevent="addBook" class="input-group mb-4">
-          <input 
-            v-model="newBook.title" 
-            type="text" 
-            class="form-control" 
-            placeholder="Название книги"
-            required
-          >
-          <input 
-            v-model="newBook.description" 
-            type="text" 
-            class="form-control mt-2" 
-            placeholder="Описание книги"
-            required
-          >
-          <input 
-            v-model="newBook.image" 
-            type="text" 
-            class="form-control mt-2" 
-            placeholder="Ссылка на изображение"
-            required
-          >
-          <button class="btn btn-primary mt-2" type="submit">Добавить книгу</button>
-        </form>
+      <div class="col-md-4">
+        <input 
+          v-model="newBook.title" 
+          type="text" 
+          class="form-control" 
+          placeholder="Название книги"
+          required
+        >
+      </div>
+      <div class="col-md-4">
+        <input 
+          v-model="newBook.description" 
+          type="text" 
+          class="form-control" 
+          placeholder="Описание книги"
+          required
+        >
+      </div>
+      <div class="col-md-4">
+        <input 
+          v-model="newBook.image" 
+          type="text" 
+          class="form-control" 
+          placeholder="Ссылка на изображение"
+          required
+        >
       </div>
     </div>
 
+    <!-- Кнопка "Добавить книгу" теперь в форме -->
+    <form @submit.prevent="addBook" class="row mt-3">
+      <div class="col-md-4">
+        <button class="btn btn-primary w-100" type="submit">Добавить книгу</button>
+      </div>
+    </form>
+
     <!-- Фильтры сортировки -->
-    <div class="mb-3">
-      <button class="btn btn-secondary" @click="sortBooks('title')">Сортировать по названию</button>
-      <button class="btn btn-secondary ms-2" @click="sortBooks('date')">Сортировать по дате добавления</button>
+    <div class="row mt-3">
+      <div class="col-md-6">
+        <button class="btn btn-secondary w-100" @click="sortBooks('title')">Сортировать по названию</button>
+      </div>
+      <div class="col-md-6">
+        <button class="btn btn-secondary w-100" @click="sortBooks('date')">Сортировать по дате добавления</button>
+      </div>
     </div>
 
     <!-- Отображение коллекции книг -->
-    <div class="row">
+    <div class="row mt-4">
       <div 
         v-for="book in books" 
         :key="book.id" 
